@@ -50,8 +50,8 @@ export default function Pokemons() {
         })
         : (
           <div className='flex flex-col justify-center items-center gap-y-2 col-span-full'>
-            <h2 className='font-poppins font-medium'>You don't have any pokemon yet</h2>
-            <Link href={'/'}><a className='mt-1'><Button>Let's Catch One!</Button></a></Link>
+            <h2 className='font-poppins font-medium'>You don&#39;t have any pokemon yet</h2>
+            <Link href={'/'}><a className='mt-1'><Button>Let&#39;s Catch One!</Button></a></Link>
           </div>
         )
       };
