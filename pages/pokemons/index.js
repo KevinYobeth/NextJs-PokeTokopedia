@@ -54,7 +54,7 @@ export default function Pokemons() {
             <Link href={'/'}><a className='mt-1'><Button>Let&#39;s Catch One!</Button></a></Link>
           </div>
         )
-      };
+      }
     </div>
   );
 }
