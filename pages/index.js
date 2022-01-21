@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import PokemonsList from '../components/PokemonsList';
 import { useContext } from 'react';
 import { PokemonContext } from './_app';
+import Head from 'next/head';
 
 export default function Home({ pokemons }) {
   const [formattedCatchedPokemons, setFormattedCatchedPokemons] = useState([]);
@@ -25,8 +26,14 @@ export default function Home({ pokemons }) {
   }, [catchedPokemons]);
 
   return (
-    <PokemonsList
-      data={pokemons.results} catchedPokemons={formattedCatchedPokemons} />
+    <>
+      <Head>
+        <title>Pokemons List - POKE</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <PokemonsList
+        data={pokemons.results} catchedPokemons={formattedCatchedPokemons} />
+    </>
   );
 }
 
