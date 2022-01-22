@@ -1,13 +1,31 @@
-import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { capitalize } from "lodash";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Image from "next/image";
+import PokemonListCard from "./PokemonListCard";
+import { PokemonContext } from "../pages/_app";
 
-const PokemonsList = ({ data, catchedPokemons }) => {
+const PokemonsList = ({ data }) => {
   const [pokemons, setPokemons] = useState(data);
   const [hasMore, setHasMore] = useState(true);
+
+  const [formattedCatchedPokemons, setFormattedCatchedPokemons] = useState([]);
+  const { catchedPokemons } = useContext(PokemonContext);
+
+  useEffect(() => {
+    const catchedPokemonsFormatted = catchedPokemons.reduce((acc, pokemon) => {
+      if (acc[pokemon.name]) {
+        acc[pokemon.name].count++;
+      } else {
+        acc[pokemon.name] = {
+          id: pokemon.id,
+          count: 1
+        };
+      }
+      return acc;
+    }, {});
+
+    setFormattedCatchedPokemons(catchedPokemonsFormatted);
+  }, [catchedPokemons]);
 
   const getMorePokemons = async () => {
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
@@ -30,19 +48,12 @@ const PokemonsList = ({ data, catchedPokemons }) => {
       className="grid grid-cols-2 sm:grid-cols-3 gap-3"
     >
       {pokemons.map((pokemon, index) => (
-        <Link href={`/pokemons/${pokemon.name}`} key={pokemon.name}>
-          <a>
-            <div className='flex flex-col items-center justify-between w-full p-3 bg-white 
-              rounded-md drop-shadow-md'>
-              <h1 className='font-poppins'>{capitalize(pokemon.name)}</h1>
-              <p className='font-poppins text-sm'>
-                Owned: <span>{catchedPokemons[pokemon.name]?.count || 0}</span>
-              </p>
-              <Image width={300} height={300}
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index + 1}.png`} alt="" />
-            </div>
-          </a>
-        </Link>
+        <PokemonListCard
+          pokemon={pokemon}
+          catchedPokemons={formattedCatchedPokemons}
+          index={index}
+          key={pokemon.name}
+        />
       ))}
     </InfiniteScroll>
   );

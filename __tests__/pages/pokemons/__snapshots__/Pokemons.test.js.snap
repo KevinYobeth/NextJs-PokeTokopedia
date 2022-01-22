@@ -298,7 +298,6 @@ exports[`Pokemons #render should render owned pokemons page correctly when loade
           </button>
         </div>
       </div>
-      ;
     </div>
   </main>
 </div>

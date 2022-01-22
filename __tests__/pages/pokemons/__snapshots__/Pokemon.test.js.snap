@@ -155,7 +155,7 @@ exports[`Pokemon #render should render Pokemon pages correctly when loaded 1`] =
         </div>
       </div>
       <div
-        class="flex flex-col"
+        class="flex flex-col mb-10"
       >
         <div
           class="flex font-poppins font-medium text-lg w-full gap-x-10 md:mt-0 cursor-pointer"
