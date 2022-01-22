@@ -78,6 +78,7 @@ const PokemonCard = ({ pokemon }) => {
                 className={`w-full rounded-md ${errorMsg ? 'border-red-500' : 'border-gray-300'}`}
                 type='text'
                 placeholder='Enter Nickname'
+                value={pokemonNickname}
                 onChange={(e) => setPokemonNickname(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSubmitNickname()}
               />
