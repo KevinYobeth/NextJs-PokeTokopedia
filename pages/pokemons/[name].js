@@ -9,7 +9,7 @@ export default function Pokemon({ thumbnail, name, id, pokemonDetails }) {
     <>
       <Head>
         <title>{capitalize(name)} - POKE</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <div className='flex flex-col md:flex-row gap-5'>
         <PokemonCard pokemon={{ id, name, thumbnail }} />

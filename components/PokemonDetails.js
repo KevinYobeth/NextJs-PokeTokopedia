@@ -1,5 +1,5 @@
-import { capitalize, isArray } from "lodash";
-import { useEffect, useState } from "react";
+import { capitalize, isArray } from 'lodash';
+import { useEffect, useState } from 'react';
 
 const PokemonDetails = ({ pokemonDetails }) => {
   const [tab, setTab] = useState(0);

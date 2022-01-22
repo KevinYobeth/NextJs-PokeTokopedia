@@ -1,9 +1,9 @@
-import { capitalize, isEmpty } from "lodash";
-import Image from "next/image";
-import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-import { PokemonContext } from "../pages/_app";
-import Button from "./Button";
+import { capitalize, isEmpty } from 'lodash';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useContext, useEffect, useState } from 'react';
+import { PokemonContext } from '../pages/_app';
+import Button from './Button';
 
 const PokemonCard = ({ pokemon }) => {
   const { id, thumbnail, name } = pokemon;

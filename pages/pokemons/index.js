@@ -13,9 +13,9 @@ export default function Pokemons() {
     <>
       <Head>
         <title>Your Pokemons - POKE</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3'>
+      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 mb-10'>
         {!isEmpty(catchedPokemons)
           ?
           catchedPokemons.slice(0).reverse().map(pokemon => {

@@ -1,8 +1,8 @@
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import PokemonListCard from "./PokemonListCard";
-import { PokemonContext } from "../pages/_app";
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import PokemonListCard from './PokemonListCard';
+import { PokemonContext } from '../pages/_app';
 
 const PokemonsList = ({ data }) => {
   const [pokemons, setPokemons] = useState(data);
@@ -45,7 +45,7 @@ const PokemonsList = ({ data }) => {
       hasMore={hasMore}
       loader={<h3> Loading...</h3>}
       endMessage={<h4>Nothing more to show</h4>}
-      className="grid grid-cols-2 sm:grid-cols-3 gap-3"
+      className='grid grid-cols-2 sm:grid-cols-3 gap-3'
     >
       {pokemons.map((pokemon, index) => (
         <PokemonListCard

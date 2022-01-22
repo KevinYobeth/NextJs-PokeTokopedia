@@ -1,6 +1,6 @@
-import { capitalize } from "lodash";
-import Image from "next/image";
-import Link from "next/link";
+import { capitalize } from 'lodash';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const PokemonListCard = ({ pokemon, catchedPokemons, index }) => {
   return (
@@ -13,7 +13,7 @@ const PokemonListCard = ({ pokemon, catchedPokemons, index }) => {
             Owned: <span>{catchedPokemons[pokemon.name]?.count || 0}</span>
           </p>
           <Image width={300} height={300}
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index + 1}.png`} alt="" />
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index + 1}.png`} alt='' />
         </div>
       </a>
     </Link>
